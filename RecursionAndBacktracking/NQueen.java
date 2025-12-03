@@ -20,7 +20,17 @@ Output: [["Q"]]
  */
 public class NQueen {
     public static void main(String[] args) {
-        System.out.println(solveNQueens(4));
+        for (List<String> l : solveNQueens(4)) {
+            for (String s : l) {
+                for (String st : s.split("")) {
+                    System.out.print(st + "  ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+
+        }
+
     }
 
     public static List<List<String>> solveNQueens(int n) {
@@ -43,7 +53,7 @@ public class NQueen {
                     sb.append(chars[j]);
                 }
                 solution.add(sb.toString());
-                sb.delete(0, sb.length()); // for deleting 
+                sb.delete(0, sb.length()); // for deleting
             }
             ans.add(solution);
         }

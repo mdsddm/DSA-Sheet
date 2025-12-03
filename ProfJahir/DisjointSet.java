@@ -1,11 +1,11 @@
 package ProfJahir;
 
-public class DisjointSet {
+class DisjointSetOne {
     static int n;
     static int[] U;
 
-    DisjointSet(int n) {
-        DisjointSet.n = n;
+    DisjointSetOne(int n) {
+        DisjointSetOne.n = n;
         U = new int[n];
         for (int i = 0; i < n; i++) {
             U[i] = i;

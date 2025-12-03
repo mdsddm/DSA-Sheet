@@ -28,10 +28,10 @@ Output: [1]
  */
 public class SlidingWindowMaximum {
     public static void main(String[] args) {
-        int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
+        int[] nums = { 1, 3, -1, -3, 5, 3, 6, 7 };
         int[] ans = maxSlidingWindow(nums, 3);
         for (int cur : ans)
-            System.out.print(cur);
+            System.out.print(cur + " ");
     }
 
     public static int[] maxSlidingWindow(int[] nums, int k) {
@@ -39,16 +39,19 @@ public class SlidingWindowMaximum {
         Deque<Integer> dq = new LinkedList<>();
         for (int i = 0, in = 0; i < nums.length; i++) {
             // remove indices outside the current window
-            if (!dq.isEmpty() && i - dq.peekFirst() + 1 > k) dq.pollFirst();
+            if (!dq.isEmpty() && i - dq.peekFirst() + 1 > k)
+                dq.pollFirst();
 
             // remove indices of smaller elements from the back
-            while (!dq.isEmpty() && nums[dq.peekLast()] <= nums[i]) dq.pollLast();
+            while (!dq.isEmpty() && nums[dq.peekLast()] <= nums[i])
+                dq.pollLast();
 
             // add current index
             dq.offerLast(i);
 
             // add current max answer
-            if (i + 1 >= k) ans[in++] = nums[dq.peekFirst()];
+            if (i + 1 >= k)
+                ans[in++] = nums[dq.peekFirst()];
         }
 
         return ans;

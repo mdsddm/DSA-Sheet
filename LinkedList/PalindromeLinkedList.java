@@ -19,17 +19,18 @@ Follow up: Could you do it in O(n) time and O(1) space?
  */
 public class PalindromeLinkedList {
     public static void main(String[] args) {
-        ListNode list = LL.getList(new int[]{5, 6, 6, 5});
+        ListNode list = LL.getList(new int[] { 5, 6, 6, 5 });
         System.out.println(isPalindrome(list));
     }
 
-    //  Approach
+    // Approach
     // first we find the middle
     // reverse the right linked list from middle
     // compare from both end
     // to space complexity slow:left and fast:right
     public static boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null) return true;
+        if (head == null || head.next == null)
+            return true;
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
@@ -48,7 +49,8 @@ public class PalindromeLinkedList {
         ListNode left = prev;
         ListNode right = head;
         while (left != null && right != null) {
-            if (left.val != right.val) return false;
+            if (left.val != right.val)
+                return false;
             left = left.next;
             right = right.next;
         }

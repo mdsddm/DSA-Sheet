@@ -4,7 +4,7 @@ package ProfJahir;
 
 public class DisjointSetClass {
     public static void main(String[] args) {
-        DisjointSet ds = new DisjointSet(10);
+        DisjointSetTwo ds = new DisjointSetTwo(10);
         ds.merge(2, 4);
         ds.merge(2, 7);
         ds.merge(2, 10);
@@ -20,11 +20,11 @@ public class DisjointSetClass {
     }
 }
 
-class DisjointSet {
+class DisjointSetTwo {
     int[] parent;
 
     // Make set: Initialize with n elements, each as its own parent
-    public DisjointSet(int n) {
+    public DisjointSetTwo(int n) {
         parent = new int[n + 1]; // Assuming 1-based indexing
         for (int i = 1; i <= n; i++) {
             parent[i] = i;
