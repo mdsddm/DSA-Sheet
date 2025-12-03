@@ -32,6 +32,7 @@ public class ReverseWordInAString {
         public static String reverseWords(String s) {
             if (s == null || s.isEmpty()) return s;
             String[] words = s.trim().split("\\s+");
+            System.out.println(Arrays.toString(words));
             Collections.reverse(Arrays.asList(words));
             return String.join(" ", words);
         }

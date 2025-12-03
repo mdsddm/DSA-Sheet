@@ -1,4 +1,5 @@
 package String;
+
 /*  3442. Maximum Difference Between Even and Odd Frequency
 You are given a string s consisting of lowercase English letters.
 Your task is to find the maximum difference diff = freq(a1) - freq(a2)
@@ -25,19 +26,20 @@ public class MaximumDifferenceBetweenOddAndEvenFrequency {
     public static void main(String[] args) {
         System.out.println(maxDifference("abcabcab"));
     }
+
     public static int maxDifference(String s) {
-        int [] freqStore = new int[26];
-        for(int i=0;i<s.length();i++){
-            freqStore[s.charAt(i)-'a']++;
+        int[] freqStore = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            freqStore[s.charAt(i) - 'a']++;
         }
-        int maxOdd=Integer.MIN_VALUE;
-        int minEven=Integer.MAX_VALUE;
-        for (int i : freqStore){
-            if (i!=0 & i%2==0)
-                minEven=Integer.min(minEven,i);
+        int maxOdd = Integer.MIN_VALUE;
+        int minEven = Integer.MAX_VALUE;
+        for (int i : freqStore) {
+            if (i != 0 && i % 2 == 0)
+                minEven = Integer.min(minEven, i);
             else
-                maxOdd=Integer.max(maxOdd,i);
+                maxOdd = Integer.max(maxOdd, i);
         }
-        return (maxOdd-minEven);
+        return (maxOdd - minEven);
     }
 }
