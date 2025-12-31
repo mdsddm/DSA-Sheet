@@ -11,8 +11,9 @@ Input: num = [2,2,1,1,1,2,2]
 Output: 2 */
 public class MajortyElement {
     public static void main(String[] args) {
-        int[] nums = {6, 5, 5};
+        int[] nums = { 2, 2, 1, 1, 1, 2, 2 };
         System.out.println(majorityElement(nums));
+        System.out.println(majorityElementII(nums));
     }
 
     public static int majorityElement(int[] nums) {
@@ -22,15 +23,33 @@ public class MajortyElement {
             currNum = num;
             cCount = 0;
             for (int i : nums) {
-                if (currNum == i) cCount++;
+                if (currNum == i)
+                    cCount++;
             }
-            if (cCount > n / 2) return currNum;
+            if (cCount > n / 2)
+                return currNum;
             if (cCount > pCount) {
                 pCount = cCount;
                 preNum = currNum;
             }
         }
         return preNum;
+    }
+
+    // Using Moores Voting Algorithm
+    private static int majorityElementII(int[] nums) {
+        int me = nums[0];
+        int cur = 1;
+        for (int i = 1; i < nums.length; i++) {
+            me = cur == 0 ? nums[i] : me;
+            if (nums[i] == me) {
+                cur++;
+            } else {
+                cur--;
+            }
+
+        }
+        return me;
     }
 
 }
